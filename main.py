@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 import openai
 
+load_dotenv()
+openai.api_key = os.environ.get('OPENAI_KEY')
+
 def askGPT(text):
-    openai.api_key = "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"
     response = openai.Completion.create(
         engine = "text-davinci-003",
         prompt = text,
